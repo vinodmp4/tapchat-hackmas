@@ -15,11 +15,42 @@ document.getElementById('inputbox').addEventListener("keyup",function(event){
 		senddata();
 	}
 });
-document.getElementById('toucharea').addEventListener("click",function(event){
-	readall();
+document.getElementById('toucharea').addEventListener("mousedown",function(event){
+	const date = new Date();
+	time1 = date.getTime();	
 });
-document.getElementById('chatarea').addEventListener("click",function(event){
-	readall();
+document.getElementById('toucharea').addEventListener("mouseup",function(event){
+	const date = new Date();
+	time2 = date.getTime();
+	if ((time2-time1)<1200){
+		readall(); // tap
+	}else{
+		var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  		var recognition = new SpeechRecognition();
+  		recognition.start();
+  		recog = 1;
+	}	
+	
+});
+document.getElementById('toucharea').addEventListener("click",function(event){
+	if (recog==1){
+		recognition.stop();
+		recog = 0;
+	}
+});
+document.getElementById('chatarea').addEventListener("mousedown",function(event){
+	const date = new Date();
+	time1 = date.getTime();	
+});
+document.getElementById('chatarea').addEventListener("mouseup",function(event){
+	const date = new Date();
+	time2 = date.getTime();
+	if ((time2-time1)<1200){
+		readall(); // tap
+	}else{
+		document.write('hello');
+	}	
+	
 });
 </script>
 </html>
