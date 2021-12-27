@@ -5,3 +5,46 @@
 	border:1px solid #00f;
 	background:#00f;
 }
+#inputbox{
+	height:3em;
+	width:90%;
+}
+#sendbutton{
+	height:3em;
+	width:10%;
+	background:#2a2;
+	color:#fff;
+	font-weight:bold;
+	float:right;
+}
+.chatbox{
+	width:100%;
+	position:fixed;
+	right:0;
+	left:0;
+	bottom:0;
+}
+#me{
+	margin:0 0 0 47%;
+	background:green;
+	color:white;
+	width:50%;
+	padding:20px;
+	border-radius:20px;
+	border:1px solid green;
+	font-size:20px;
+	display:block;
+	position:relative;
+}
+#you{
+	margin:0 50% 0 0;
+	background:gray;
+	color:white;
+	width:50%;
+	padding:20px;
+	border-radius:20px;
+	border:1px solid gray;
+	font-size:20px;
+	display:block;
+	position:relative;
+}

@@ -2,9 +2,17 @@
 	<head>
 		<title>TapChat Interface</title>
 		<link rel="stylesheet" href="tapstyle.css">
+		<script type="text/javascript" src="tapscript.js"></script>
 	</head>
 	<body>
 	<div class='banner'><span style="color:#fff;">Tap</span><span style="color:#0ff;">Chat</span></div>
-	<div class='chatbox'><input type='text'><button id='sendbutton'>Send</button></div>
+	<div id='chatarea'></div>
+	<div class='chatbox'><input id='inputbox' type='text' placeholder='Type Something...'><button onclick="senddata()" id='sendbutton'>Send</button></div>
 	</body>
+<script type="text/javascript">	document.getElementById('inputbox').addEventListener("keyup",function(event){
+	if (event.keyCode === 13){
+		senddata();
+	}
+});
+</script>
 </html>
