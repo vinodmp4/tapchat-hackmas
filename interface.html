@@ -5,14 +5,21 @@
 		<script type="text/javascript" src="tapscript.js"></script>
 	</head>
 	<body>
-	<div class='banner'><span style="color:#fff;">Tap</span><span style="color:#0ff;">Chat</span></div>
-	<div id='chatarea'></div>
+	<div class='banner' id='toucharea'><span style="color:#fff;">Tap</span><span style="color:#0ff;">Chat</span></div>
+	<div id='chatarea'></br></br></br></br><center>Tap anywhere to Read</br>Hold anywhere to record</center></br></div>
 	<div class='chatbox'><input id='inputbox' type='text' placeholder='Type Something...'><button onclick="senddata()" id='sendbutton'>Send</button></div>
 	</body>
-<script type="text/javascript">	document.getElementById('inputbox').addEventListener("keyup",function(event){
+<script type="text/javascript">	
+document.getElementById('inputbox').addEventListener("keyup",function(event){
 	if (event.keyCode === 13){
 		senddata();
 	}
+});
+document.getElementById('toucharea').addEventListener("click",function(event){
+	readall();
+});
+document.getElementById('chatarea').addEventListener("click",function(event){
+	readall();
 });
 </script>
 </html>
