@@ -19,6 +19,7 @@ document.getElementById('toucharea').addEventListener("mousedown",function(event
 	const date = new Date();
 	time1 = date.getTime();	
 });
+
 document.getElementById('toucharea').addEventListener("mouseup",function(event){
 	const date = new Date();
 	time2 = date.getTime();
@@ -26,17 +27,22 @@ document.getElementById('toucharea').addEventListener("mouseup",function(event){
 		readall(); // tap
 	}else{
 		var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  		var recognition = new SpeechRecognition();
-  		recognition.start();
-  		recog = 1;
-	}	
-	
-});
-document.getElementById('toucharea').addEventListener("click",function(event){
-	if (recog==1){
-		recognition.stop();
-		recog = 0;
-	}
+		var recognition = new SpeechRecognition();
+  		recognition.onstart = function() {
+    			console.log("speech recognition begin");
+		};
+
+		recognition.onspeechend = function() {
+				console.log('speech recognition end');
+    			recognition.stop();
+		}
+             
+		recognition.onresult = function(event) {
+    			var text1 = event.results[0][0].transcript;
+    			document.getElementById('inputbox').value = text1;    			
+		};
+		recognition.start();
+	}		
 });
 document.getElementById('chatarea').addEventListener("mousedown",function(event){
 	const date = new Date();
