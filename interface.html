@@ -28,18 +28,15 @@ document.getElementById('toucharea').addEventListener("mouseup",function(event){
 	}else{
 		var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 		var recognition = new SpeechRecognition();
-  		recognition.onstart = function() {
-    			console.log("speech recognition begin");
-		};
-
 		recognition.onspeechend = function() {
-				console.log('speech recognition end');
     			recognition.stop();
 		}
              
 		recognition.onresult = function(event) {
     			var text1 = event.results[0][0].transcript;
-    			document.getElementById('inputbox').value = text1;    			
+    			document.getElementById('inputbox').value = text1;
+    			senddata();
+    			readall();  			
 		};
 		recognition.start();
 	}		
@@ -54,7 +51,20 @@ document.getElementById('chatarea').addEventListener("mouseup",function(event){
 	if ((time2-time1)<1200){
 		readall(); // tap
 	}else{
-		document.write('hello');
+		var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+		var recognition = new SpeechRecognition();
+  		
+		recognition.onspeechend = function() {
+    			recognition.stop();
+		}
+             
+		recognition.onresult = function(event) {
+    			var text1 = event.results[0][0].transcript;
+    			document.getElementById('inputbox').value = text1;
+    			senddata();
+    			readall();  			
+		};
+		recognition.start();
 	}	
 	
 });

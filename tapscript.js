@@ -1,10 +1,6 @@
 var data = [];
 var time1 = 0;
 var time2 = 0;
-var recog = 0;
-var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-var recognition = new SpeechRecognition();
-
 
 function getresponse(inputtext){
 	var responses = {"hi":["hi","hello","hai","hey","hai, How can i help you?"],
